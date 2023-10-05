@@ -1,0 +1,10 @@
+---
+ - name: configure webserver
+   hosts: apachebox
+   remote_user: vagrant
+   tasks:
+         - name: Install apache webserver
+           apt:
+              name: apache2
+              state: present
+           become: yes

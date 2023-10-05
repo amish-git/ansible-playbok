@@ -1,0 +1,17 @@
+---
+- name: configure webserver
+  hosts: apachebox
+  remote_user: vagrant
+  tasks:
+    - name: Uninstall apache server
+      apt:
+        name: apache2
+        state: absent
+      become: yes
+    
+    - name: Remove unwanted dependencies and cache
+      apt:
+        autoremove: yes
+        autoclean: yes
+      become: yes                                                        
+
